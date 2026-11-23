@@ -1,6 +1,6 @@
 ---
 name: legacy-plan-reconciliation-matrix
-description: Audits an outdated plan, proposal, spec, or decision set against current evidence by building a per-claim REUSE / REVISE / REJECT / DEFER-TO-EXECUTION / VERIFY disposition matrix, plus a live-check register for facts that must be re-confirmed before reuse. Invoke when a document (a plan, roadmap, design doc, proposal, or prior decision record) predates significant changes — new evidence, completed work, reversed decisions, shifted scope, or the passage of enough time that prices, versions, or facts may have moved — and its content must not be reused, cited, or built upon until it has been rigorously and auditably reconciled against the present state.
+description: Audits an outdated plan, spec or roadmap against current evidence. Builds a per-claim REUSE / REVISE / REJECT / DEFER-TO-EXECUTION / VERIFY matrix and a live-check register. Use before reusing, citing or building on a document that predates major changes.
 ---
 
 # Legacy Plan Reconciliation Matrix

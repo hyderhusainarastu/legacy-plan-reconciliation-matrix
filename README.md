@@ -39,22 +39,34 @@ separate list of every price, version number, vendor term, or fact that must be 
 deliberately left unchecked at audit time so the audit doesn't quietly go stale itself while being
 written.
 
-## Installation
+## Works with
 
-This is a portable Agent Skill following the `SKILL.md` convention. To use
-it with Claude Code, copy this folder into your project's `.claude/skills/` directory:
+| Surface | How | Status |
+|---|---|---|
+| Claude Code | native skill (`./install.sh --claude`) | not tested |
+| Codex | native skill via `.agents/skills` | not tested |
+| Gemini CLI | native skill via `.agents/skills`, or pointer block in `GEMINI.md` | not tested |
+| Cursor | native skill via `.agents/skills`, or pointer block in `AGENTS.md` | not tested |
+| Copilot | pointer block in `.github/copilot-instructions.md` | not tested |
+| ChatGPT / Claude.ai / Gemini (chat) | prompt ([`PROMPT.md`](PROMPT.md)) | not tested |
 
+## Quick start
+
+```sh
+git clone https://github.com/hyderhusainarastu/legacy-plan-reconciliation-matrix
+cd legacy-plan-reconciliation-matrix
+./install.sh --claude              # ~/.claude/skills/legacy-plan-reconciliation-matrix
+./install.sh --agents --project .  # .agents/skills (Codex, Cursor, Gemini CLI)
+./install.sh --copilot --project . # pointer block for Copilot
 ```
-your-project/.claude/skills/legacy-plan-reconciliation-matrix/
-```
 
-Any other agent runtime that supports the same convention (a `SKILL.md` file with YAML frontmatter plus
-supporting reference material) can use this folder the same way — copy it into that runtime's equivalent
-skills directory.
+Run `./install.sh` with no flags to see all options. It symlinks by default (`--copy` copies),
+never overwrites paths it does not own, and `--uninstall` removes only what it installed.
+For chat assistants, paste [`PROMPT.md`](PROMPT.md) and attach the old document.
 
-Once installed, an agent working in that project will pick up the skill automatically when a task matches
-its description (e.g., "reconcile this old roadmap against what we've actually shipped," "audit this
-proposal before we reuse any of it," "this design doc is from before the rewrite, what's still valid?").
+Once installed, an agent picks up the skill when a task matches its description (for example,
+"reconcile this old roadmap against what we've actually shipped" or "this design doc is from before
+the rewrite, what's still valid?"). Agent instructions: [`AGENTS.md`](AGENTS.md).
 
 ## Worked example
 
@@ -75,3 +87,17 @@ execution procedure, and evidence ledger — is in
 ## License
 
 MIT. See [LICENSE](LICENSE).
+
+## Related
+
+- [deep-research-skill](https://github.com/hyderhusainarastu/deep-research-skill)
+- [agent-report-evidence-gate](https://github.com/hyderhusainarastu/agent-report-evidence-gate)
+- [hallucinated-citation-checker](https://github.com/hyderhusainarastu/hallucinated-citation-checker)
+- [cross-model-second-opinion](https://github.com/hyderhusainarastu/cross-model-second-opinion)
+
+## Keywords
+
+plan audit, roadmap review, stale documentation, technical debt, reconciliation matrix, agent skill, SKILL.md
+
+---
+Part of palimnote-skills - more at https://github.com/hyderhusainarastu
